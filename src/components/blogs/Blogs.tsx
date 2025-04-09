@@ -29,7 +29,8 @@ const relatedBlogs = [
   {
     title: "Figma vs Sketch: Which one to choose?",
     description: "Comparing Figma and Sketch for UI/UX design in modern teams.",
-    image: "https://flowbite.com/docs/images/blog/image-5.jpg",
+    image:
+      "https://cdn.pixabay.com/photo/2022/04/10/15/11/greylag-goose-7123574_1280.jpg",
   },
 ];
 
@@ -44,14 +45,14 @@ const Blogs = () => {
               <div className="inline-flex items-center mr-3 text-sm">
                 <img
                   className="mr-4 w-16 h-16 rounded-full"
-                  src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
-                  alt="Jese Leos"
+                  src="https://cdn.pixabay.com/photo/2023/01/28/20/23/ai-generated-7751688_1280.jpg"
+                  alt="profile"
                 />
                 <div>
                   <a href="#" className="text-xl font-bold">
-                    Jese Leos
+                    Mythic Arena
                   </a>
-                  <p className="text-gray-400 text-base">Graphic Designer</p>
+                  <p className="text-gray-400 text-base">Web Developer</p>
                   <p className="text-gray-400 text-base">Feb. 8, 2022</p>
                 </div>
               </div>
@@ -135,11 +136,11 @@ const Blogs = () => {
             <article className="bg-gray-700 p-4 rounded-lg">
               <div className="flex items-center space-x-3 mb-2">
                 <img
-                  src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                  src="https://cdn.pixabay.com/photo/2023/01/28/20/23/ai-generated-7751688_1280.jpg"
                   className="w-8 h-8 rounded-full"
                 />
                 <div>
-                  <p className="font-semibold text-sm">Michael Gough</p>
+                  <p className="font-semibold text-sm">Naguu Gough</p>
                   <time className="text-xs text-gray-400">Feb. 8, 2022</time>
                 </div>
               </div>
