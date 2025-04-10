@@ -1,10 +1,11 @@
 import React from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import Games from "@/components/games/Games";
 
 function page() {
   return (
     <MainLayout>
-      <div className="p-8 text-dark">Games Page</div>
+      <Games />
     </MainLayout>
   );
 }
