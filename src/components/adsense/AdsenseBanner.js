@@ -5,10 +5,11 @@ import { useEffect } from "react";
 const AdSenseBanner = () => {
   useEffect(() => {
     try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      if (typeof window !== "undefined") {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
     } catch (e) {
-      console.error("AdSense error", e);
+      console.error("Adsense error", e);
     }
   }, []);
 
@@ -16,10 +17,10 @@ const AdSenseBanner = () => {
     <ins
       className="adsbygoogle"
       style={{ display: "block" }}
-      data-ad-client="ca-pub-7883719162318197"
-      data-ad-slot="2571633490"
-      data-ad-format="fluid"
-      data-ad-layout-key="-fb+5w+4e-db+86"
+      data-ad-client="ca-pub-3940256099942544"
+      data-ad-slot="6300978111"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
     ></ins>
   );
 };

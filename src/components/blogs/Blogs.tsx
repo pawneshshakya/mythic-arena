@@ -177,6 +177,9 @@ const Blogs = () => {
         {/* Right Sidebar: Latest Blogs */}
         <aside className="space-y-6">
           <h2 className="text-xl font-bold">Latest Blogs</h2>
+          <div className="my-4">
+            <AdSenseBanner />
+          </div>
           {latestBlogs.map((blog, i) => (
             <React.Fragment key={i}>
               <div className="flex items-start space-x-4 bg-gray-700 p-3 rounded-lg shadow-sm">

@@ -1,27 +1,12 @@
-"use client";
-
-import { useEffect } from "react";
-
-const AdBanner = () => {
-  useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense error", e);
-    }
-  }, []);
-
-  return (
-    <ins
-      className="adsbygoogle"
-      style={{ display: "block" }}
-      data-ad-client="ca-pub-7883719162318197"
-      data-ad-slot="2571633490"
-      data-ad-format="fluid"
-      data-ad-layout-key="-fb+5w+4e-db+86"
-    ></ins>
-  );
-};
-
-export default AdBanner;
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7883719162318197"
+     crossorigin="anonymous"></script>
+<!-- converterHor -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-7883719162318197"
+     data-ad-slot="5026504505"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
