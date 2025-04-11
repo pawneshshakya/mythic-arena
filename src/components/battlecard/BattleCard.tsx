@@ -41,14 +41,14 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
   }, [startTime]);
 
   return (
-    <div className="w-full max-w-xl mx-auto p-4 bg-white rounded-2xl shadow-lg flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+    <div className="w-full max-w-xl mx-auto p-4 bg-white rounded-2xl shadow-lg flex items-center gap-4 flex-row justify-between">
       {/* Team 1 */}
       <div className="flex flex-col items-center text-center">
         <Image
           src={team1.logoUrl}
           alt={team1.name}
-          width={200}
-          height={200}
+          width={120}
+          height={120}
           className="rounded-full object-contain"
           unoptimized
         />
@@ -67,8 +67,8 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
         <Image
           src={team2.logoUrl}
           alt={team2.name}
-          width={200}
-          height={200}
+          width={120}
+          height={120}
           className="rounded-full object-contain"
           unoptimized
         />
@@ -79,6 +79,88 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
 };
 
 export default BattleCard;
+
+// "use client";
+// import React, { useEffect, useState } from "react";
+// import Image from "next/image";
+
+// interface Team {
+//   name: string;
+//   logoUrl: string;
+// }
+
+// interface BattleCardProps {
+//   team1: Team;
+//   team2: Team;
+//   startTime: string; // ISO format string
+// }
+
+// const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
+//   const [remainingTime, setRemainingTime] = useState<string>("");
+
+//   useEffect(() => {
+//     const updateRemainingTime = () => {
+//       const start = new Date(startTime).getTime();
+//       const now = new Date().getTime();
+//       const diff = start - now;
+
+//       if (diff <= 0) {
+//         setRemainingTime("Battle Started");
+//         return;
+//       }
+
+//       const hours = Math.floor(diff / (1000 * 60 * 60));
+//       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+//       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+//       setRemainingTime(`${hours}h ${minutes}m ${seconds}s`);
+//     };
+
+//     updateRemainingTime();
+//     const interval = setInterval(updateRemainingTime, 1000);
+
+//     return () => clearInterval(interval);
+//   }, [startTime]);
+
+//   return (
+//     <div className="w-full max-w-xl mx-auto p-4 bg-white rounded-2xl shadow-lg flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+//       {/* Team 1 */}
+//       <div className="flex flex-col items-center text-center">
+//         <Image
+//           src={team1.logoUrl}
+//           alt={team1.name}
+//           width={120}
+//           height={120}
+//           className="rounded-full object-contain"
+//           unoptimized
+//         />
+//         <p className="mt-2 font-semibold text-lg text-gray-700">{team1.name}</p>
+//       </div>
+
+//       {/* V/S and Timer */}
+//       <div className="flex flex-col items-center text-center">
+//         <p className="text-[3rem] font-bold text-gray-700 mb-5">V/S</p>
+//         <p className="text-md text-gray-500">Starts in</p>
+//         <p className="text-md font-medium text-blue-600">{remainingTime}</p>
+//       </div>
+
+//       {/* Team 2 */}
+//       <div className="flex flex-col items-center text-center">
+//         <Image
+//           src={team2.logoUrl}
+//           alt={team2.name}
+//           width={120}
+//           height={120}
+//           className="rounded-full object-contain"
+//           unoptimized
+//         />
+//         <p className="mt-2 font-semibold text-lg text-gray-700">{team2.name}</p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BattleCard;
 
 // import Image from "next/image";
 
