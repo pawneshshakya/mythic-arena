@@ -52,14 +52,14 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
           className="rounded-full object-contain"
           unoptimized
         />
-        <p className="mt-2 font-semibold text-lg">{team1.name}</p>
+        <p className="mt-2 font-semibold text-lg text-gray-700">{team1.name}</p>
       </div>
 
       {/* V/S and Timer */}
       <div className="flex flex-col items-center text-center">
-        <p className="text-2xl font-bold text-gray-700">V/S</p>
-        <p className="text-sm text-gray-500 mt-1">Starts in</p>
-        <p className="text-sm font-medium text-blue-600">{remainingTime}</p>
+        <p className="text-[3rem] font-bold text-gray-700 mb-5">V/S</p>
+        <p className="text-md text-gray-500">Starts in</p>
+        <p className="text-md font-medium text-blue-600">{remainingTime}</p>
       </div>
 
       {/* Team 2 */}
@@ -72,7 +72,7 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
           className="rounded-full object-contain"
           unoptimized
         />
-        <p className="mt-2 font-semibold text-lg">{team2.name}</p>
+        <p className="mt-2 font-semibold text-lg text-gray-700">{team2.name}</p>
       </div>
     </div>
   );
