@@ -62,14 +62,14 @@ export function Header() {
           <Link href="/" className="hover:text-orange-400">
             Home
           </Link>
+          <Link href="/live" className="hover:text-orange-400">
+            Live
+          </Link>
           <Link href="/games" className="hover:text-orange-400">
             Games
           </Link>
           <Link href="/tournaments" className="hover:text-orange-400">
             Tournaments
-          </Link>
-          <Link href="/promotions" className="hover:text-orange-400">
-            Promotions
           </Link>
           <Link href="/blogs" className="hover:text-orange-400">
             Blogs

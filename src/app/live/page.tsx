@@ -1,10 +1,11 @@
 import React from "react";
 import { MainLayout } from "@/components/layout/MainLayout";
+import Live from "@/components/live/Live";
 
 function page() {
   return (
     <MainLayout>
-      <p>Games</p>
+      <Live />
     </MainLayout>
   );
 }

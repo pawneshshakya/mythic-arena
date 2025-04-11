@@ -47,8 +47,8 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
         <Image
           src={team1.logoUrl}
           alt={team1.name}
-          width={120}
-          height={120}
+          width={100}
+          height={100}
           className="rounded-full object-contain"
           unoptimized
         />
@@ -57,7 +57,7 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
 
       {/* V/S and Timer */}
       <div className="flex flex-col items-center text-center">
-        <p className="text-[3rem] font-bold text-gray-700 mb-5">V/S</p>
+        <p className="text-[2rem] font-bold text-gray-700 mb-5">V/S</p>
         <p className="text-md text-gray-500">Starts in</p>
         <p className="text-md font-medium text-blue-600">{remainingTime}</p>
       </div>
@@ -67,8 +67,8 @@ const BattleCard: React.FC<BattleCardProps> = ({ team1, team2, startTime }) => {
         <Image
           src={team2.logoUrl}
           alt={team2.name}
-          width={120}
-          height={120}
+          width={100}
+          height={100}
           className="rounded-full object-contain"
           unoptimized
         />
