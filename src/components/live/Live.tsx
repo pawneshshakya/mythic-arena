@@ -5,8 +5,8 @@ import BattleCard from "../battlecard/BattleCard";
 
 const Live = () => {
   return (
-    <div className="bg-gray-800 text-white min-h-screen py-8">
-      <div className="px-6 lg:px-28">
+    <div className="bg-gray-800 text-white min-h-screen py-4">
+      <div className="px-3 lg:px-28">
         <div className="flex flex-col lg:flex-row gap-6">
           <div className="lg:w-3/4 w-full space-y-4">
             <div className="w-full max-w-full bg-gray-800 relative rounded-2xl overflow-hidden">

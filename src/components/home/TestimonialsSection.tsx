@@ -6,8 +6,8 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
+  // CarouselNext,
+  // CarouselPrevious,
 } from "@/components/ui/carousel";
 
 const testimonials = [
@@ -112,10 +112,10 @@ export function TestimonialsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <div className="flex justify-center mt-8 gap-4">
+          {/* <div className="flex justify-center mt-8 gap-4">
             <CarouselPrevious />
             <CarouselNext />
-          </div>
+          </div> */}
         </Carousel>
       </div>
     </section>
