@@ -19,7 +19,7 @@ export default function TermsPage() {
   };
 
   return (
-    <section className="flex flex-col items-center justify-center bg-black px-4 py-12">
+    <section className="flex flex-col items-center justify-center bg-white px-4 py-12">
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         {/* Left Side: Text Content */}
         <div className="text-center md:text-left">
