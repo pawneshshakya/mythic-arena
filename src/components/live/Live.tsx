@@ -2,6 +2,7 @@
 
 import React from "react";
 import BattleCard from "../battlecard/BattleCard";
+import AdSenseBanner from "../adsense/AdsenseBanner";
 
 const Live = () => {
   return (
@@ -82,7 +83,12 @@ const Live = () => {
           {/* Sidebar: Up Next */}
           <div className="lg:w-1/4 w-full space-y-4">
             <div className="bg-gray-700 h-[180px] w-full flex items-center justify-center text-gray-300 text-sm rounded-2xl">
-              Google AdSense <br /> 336 × 280
+              <AdSenseBanner
+                width="336px"
+                height="280px"
+                adSlot="6300978111"
+                className="bg-gray-700 flex items-center justify-center text-gray-300 text-sm rounded-2xl overflow-hidden"
+              />
             </div>
 
             <div>
@@ -111,7 +117,12 @@ const Live = () => {
               </div>
             ))}
             <div className="bg-gray-700 h-[180px] w-full flex items-center justify-center text-gray-300 text-sm rounded-2xl">
-              Google AdSense <br /> 336 × 280
+              <AdSenseBanner
+                width="336px"
+                height="280px"
+                adSlot="6300978111"
+                className="bg-gray-700 flex items-center justify-center text-gray-300 text-sm rounded-2xl overflow-hidden"
+              />
             </div>
           </div>
         </div>

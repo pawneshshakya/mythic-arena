@@ -1,12 +1,13 @@
 import React from "react";
-import { MainLayout } from "../../components/layout/MainLayout";
+import { MainLayout } from "@/components/layout/MainLayout";
+import Tournaments from "@/components/tournaments/Tournaments";
 
-const Tournaments = () => {
+const page = () => {
   return (
     <MainLayout>
-      <div className="p-8 text-dark">Tournaments Page</div>
+      <Tournaments />
     </MainLayout>
   );
 };
 
-export default Tournaments;
+export default page;
