@@ -19,7 +19,12 @@ interface AuthContextType {
   user: User | null;
   isLoading: boolean;
   login: (email: string, password: string) => Promise<boolean>;
-  signup: (name: string, email: string, mobileNo: string, password: string) => Promise<boolean>;
+  signup: (
+    name: string,
+    email: string,
+    mobileNo: string,
+    password: string
+  ) => Promise<boolean>;
   logout: () => void;
   checkAuth: () => Promise<boolean>;
   isAdmin: () => boolean;
@@ -35,7 +40,9 @@ export const useAuth = () => {
   return context;
 };
 
-export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
@@ -95,7 +102,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           id: "1",
           name: "Admin User",
           email: "admin@example.com",
-          role: "admin" as UserRole
+          role: "admin" as UserRole,
         };
         setUser(adminUser);
         localStorage.setItem("authToken", "mock-jwt-token-admin");
@@ -107,7 +114,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           id: "2",
           name: "Regular User",
           email: "user@example.com",
-          role: "user" as UserRole
+          role: "user" as UserRole,
         };
         setUser(regularUser);
         localStorage.setItem("authToken", "mock-jwt-token-user");
@@ -125,7 +132,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   };
 
-  const signup = async (name: string, email: string, mobileNo: string, password: string): Promise<boolean> => {
+  const signup = async (
+    name: string,
+    email: string,
+    mobileNo: string,
+    password: string
+  ): Promise<boolean> => {
     setIsLoading(true);
     try {
       // In a real app, this would be an actual API call
@@ -138,7 +150,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         id: Math.random().toString(36).substring(2, 9),
         name,
         email,
-        role: "user" as UserRole
+        role: "user" as UserRole,
       };
       setUser(newUser);
       localStorage.setItem("authToken", "mock-jwt-token-" + newUser.id);

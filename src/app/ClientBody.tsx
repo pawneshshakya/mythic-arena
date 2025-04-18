@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { AuthProvider } from "@/lib/authContext";
 
 export default function ClientBody({
   children,
@@ -14,8 +15,10 @@ export default function ClientBody({
   }, []);
 
   return (
-    <body className="antialiased" suppressHydrationWarning>
-      {children}
-    </body>
+    <AuthProvider>
+      <body className="antialiased" suppressHydrationWarning>
+        {children}
+      </body>
+    </AuthProvider>
   );
 }
