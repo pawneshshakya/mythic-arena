@@ -52,33 +52,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
     checkAuth();
   }, []);
 
-  const checkAuth = async () => {
+  const checkAuth = async (): Promise<boolean> => {
     setIsLoading(true);
     try {
-      // In a real app, we'd make an API call to validate the token
       const token = localStorage.getItem("authToken");
-      if (!token) {
+      const storedUser = localStorage.getItem("user");
+
+      if (token && storedUser) {
+        setUser(JSON.parse(storedUser));
+        setIsLoading(false);
+        return true;
+      } else {
         setUser(null);
         setIsLoading(false);
         return false;
       }
-
-      // For demo purposes, we'll use a mock user
-      // In a real application, this would be an API call to validate the token
-      // const res = await axios.get("/api/auth/me");
-      // setUser(res.data.user);
-
-      // Mock user data - this would come from your backend API
-      const storedUser = localStorage.getItem("user");
-      if (storedUser) {
-        setUser(JSON.parse(storedUser));
-        setIsLoading(false);
-        return true;
-      }
-
-      setUser(null);
-      setIsLoading(false);
-      return false;
     } catch (error) {
       console.error("Auth check error:", error);
       setUser(null);
@@ -90,41 +78,27 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const login = async (email: string, password: string): Promise<boolean> => {
     setIsLoading(true);
     try {
-      // In a real app, this would be an actual API call
-      // const res = await axios.post("/api/auth/login", { identifier: email, password });
-      // setUser(res.data.user);
-      // localStorage.setItem("authToken", res.data.token);
+      const res = await axios.post("/auth/login", {
+        email,
+        password,
+      });
 
-      // Mock login logic for demo purposes
-      // In a real application, remove this and use the actual API call
-      if (email === "admin@example.com" && password === "admin123") {
-        const adminUser = {
-          id: "1",
-          name: "Admin User",
-          email: "admin@example.com",
-          role: "admin" as UserRole,
-        };
-        setUser(adminUser);
-        localStorage.setItem("authToken", "mock-jwt-token-admin");
-        localStorage.setItem("user", JSON.stringify(adminUser));
-        setIsLoading(false);
-        return true;
-      } else if (email === "user@example.com" && password === "user123") {
-        const regularUser = {
-          id: "2",
-          name: "Regular User",
-          email: "user@example.com",
-          role: "user" as UserRole,
-        };
-        setUser(regularUser);
-        localStorage.setItem("authToken", "mock-jwt-token-user");
-        localStorage.setItem("user", JSON.stringify(regularUser));
-        setIsLoading(false);
-        return true;
-      } else {
-        setIsLoading(false);
-        return false;
+      // Adjusted for API response shape
+      const { token, ...user } = res.data.data;
+
+      setUser(user);
+      localStorage.setItem("authToken", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // 👇 Navigate based on user role
+      if (user.role === "admin") {
+        router.push("/admin");
+      } else if (user.role === "user") {
+        router.push("/user");
       }
+
+      setIsLoading(false);
+      return true;
     } catch (error) {
       console.error("Login error:", error);
       setIsLoading(false);
@@ -140,21 +114,18 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   ): Promise<boolean> => {
     setIsLoading(true);
     try {
-      // In a real app, this would be an actual API call
-      // const res = await axios.post("/api/auth/register", { name, email, mobileNo, password });
-      // setUser(res.data.user);
-      // localStorage.setItem("authToken", res.data.token);
-
-      // Mock signup logic for demo purposes
-      const newUser = {
-        id: Math.random().toString(36).substring(2, 9),
+      const res = await axios.post("/auth/register", {
         name,
         email,
-        role: "user" as UserRole,
-      };
-      setUser(newUser);
-      localStorage.setItem("authToken", "mock-jwt-token-" + newUser.id);
-      localStorage.setItem("user", JSON.stringify(newUser));
+        mobileNo,
+        password,
+      });
+
+      const { token, user } = res.data;
+
+      setUser(user);
+      localStorage.setItem("authToken", token);
+      localStorage.setItem("user", JSON.stringify(user));
       setIsLoading(false);
       return true;
     } catch (error) {
